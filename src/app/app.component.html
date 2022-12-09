@@ -1,3 +1,16 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="content">
+    <ion-content>
+      <ion-list class="menu-list" >
+        <ion-menu-toggle *ngFor="let p of pageSettings">
+          <ion-item [routerLink]="p.url" routerLinkActive="active-menu" routerDirection="root">
+            <ion-label>
+              {{ p.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content" main></ion-router-outlet>
 </ion-app>
