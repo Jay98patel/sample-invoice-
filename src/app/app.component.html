@@ -1,6 +1,7 @@
 <ion-app>
   <ion-menu contentId="content">
     <ion-content>
+      
       <ion-list class="menu-list" >
         <ion-menu-toggle *ngFor="let p of pageSettings">
           <ion-item [routerLink]="p.url" routerLinkActive="active-menu" routerDirection="root">
