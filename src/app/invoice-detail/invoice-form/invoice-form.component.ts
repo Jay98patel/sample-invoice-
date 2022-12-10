@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-invoice-form',
@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoiceFormComponent implements OnInit {
 
+  @Output() close = new EventEmitter<any>();
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  cancel() {
+    this.close.emit(null);
+  }
 
 }

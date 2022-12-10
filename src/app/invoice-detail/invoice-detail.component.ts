@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ButtonStatus, InvoiceDetails } from '../models/pageModels.interface';
 import { DataService } from '../services/data.service';
-import { DbService } from '../services/db.service';
+import notify from 'devextreme/ui/notify';
 
 @Component({
   selector: 'app-invoice-detail',
@@ -12,11 +12,20 @@ export class InvoiceDetailComponent implements OnInit {
 
   invoiceList: InvoiceDetails[];
   invoiceDetail: InvoiceDetails;
+  popupVisible: boolean = false;
+  showIt = false;
 
-  constructor(private dbService: DataService) { }
+  withShadingOptionsVisible: boolean;
+
+  constructor(private dbService: DataService) {
+  }
 
   ngOnInit() {
     this.getInvoiceList();
+  }
+
+  closeModal(newName: string) {
+    this.showIt = false;
   }
 
   getInvoiceList() {
@@ -37,6 +46,7 @@ export class InvoiceDetailComponent implements OnInit {
 
   getInvoiceDetail(buttonStatus: ButtonStatus) {
     this.dbService.getByIdInvoice(buttonStatus.invoiceId).subscribe((res: InvoiceDetails) => {
+      this.showIt = true;
       this.invoiceDetail = res;
     }, (error) => {
       console.error('somethings went wrong');
