@@ -1,17 +1,20 @@
 <div class="modal">
   <div class="form h-100" [formGroup]="invoiceForm" (ngSubmit)="saveInvoiceData()">
-    <dx-text-box class="my-1" formControlName="orderNo"  placeholder="Main Contract"></dx-text-box>
+    <dx-text-box class="my-1" formControlName="orderNo" placeholder="Main Contract"></dx-text-box>
     <dx-text-box class="my-1" formControlName="eName" placeholder="eName"></dx-text-box>
     <dx-text-box class="my-1" formControlName="aName" placeholder="aName"></dx-text-box>
     <dx-select-box class="my-1" formControlName="unitNo" [items]="unitNo" placeholder="Unit"></dx-select-box>
-    <dx-number-box class="my-1" formControlName="quantity" placeholder="Enter Quantity"></dx-number-box>
-    <dx-number-box class="my-1" formControlName="price" placeholder="Price"></dx-number-box>
+    <dx-number-box class="my-1" formControlName="quantity" (onValueChanged)="setTotalPrice()"
+      placeholder="Enter Quantity"></dx-number-box>
+    <dx-number-box class="my-1" formControlName="price" (onValueChanged)="setTotalPrice()"
+      placeholder="Price"></dx-number-box>
     <div class="d-flex w-100">
-      <dx-number-box class="my-1" formControlName="discount" placeholder="Discount"></dx-number-box>
+      <dx-number-box class="my-1" formControlName="discount" (onValueChanged)="setTotalPrice()"
+        placeholder="Discount"></dx-number-box>
       <dx-number-box class="my-1" formControlName="total" placeholder="Total Price"></dx-number-box>
     </div>
     <div class="d-flex w-100">
-      <dx-number-box class="my-1" formControlName="taxRate1_Percentage" placeholder="Tax Percentage"></dx-number-box>
+      <dx-number-box class="my-1" formControlName="taxRate1_Percentage" (onValueChanged)="setTotalPrice(true)" placeholder="Tax Percentage"></dx-number-box>
       <dx-number-box class="my-1" formControlName="totalTax" placeholder="Total tax"></dx-number-box>
     </div>
     <dx-number-box class="my-1" formControlName="taxRate1_total" placeholder="Total Price"></dx-number-box>
