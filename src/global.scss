@@ -9,8 +9,8 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
- /* Core CSS required for Ionic components to work properly */
- @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/* Core CSS required for Ionic components to work properly */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
@@ -46,6 +46,10 @@ ion-toolbar {
     display: flex;
 }
 
+.justify-content-center {
+    justify-content: center;
+}
+
 .align-items-center {
     align-items: center;
 }
@@ -72,6 +76,10 @@ ion-toolbar {
 
 .ml-auto {
     margin-left: auto;
+}
+
+.mt-2 {
+    margin-top: 16px;
 }
 
 .mr-2 {

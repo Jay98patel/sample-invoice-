@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
+import { DbService } from './services/db.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SQLite,
-    SQLitePorter  
+    SQLitePorter,
+    DbService
   ],
 
   bootstrap: [AppComponent],

@@ -1,0 +1,16 @@
+<div>
+  <div class="mt-2 d-flex justify-content-center">
+    <dx-button stylingMode="contained" text="New Invoice" type="default" [width]="200" (onClick)="click()">
+    </dx-button>
+  </div>
+  <ion-card *ngFor="let invoice of invoiceList">
+    <ion-card-header>
+      <ion-card-title>{{invoice.aName}}</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      Here's a small text description for the card content. Nothing more, nothing less.
+    </ion-card-content>
+  </ion-card>
+</div>

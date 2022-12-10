@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
+import { Platform } from '@ionic/angular';
 import { Injectable } from '@angular/core';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
-import { Platform } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { InvoiceDetails } from '../models/pageModels.interface';
 import { dataSource } from '../shared/dataSource';
@@ -20,7 +20,9 @@ export class DbService {
   constructor(private platform: Platform,
     private sqlite: SQLite,
     private httpClient: HttpClient,
-    private sqlPorter: SQLitePorter) { }
+    private sqlPorter: SQLitePorter) {
+    this.createDummyData();
+  }
 
   createDummyData() {
     const sqliteDatabaseConfig = {
@@ -28,10 +30,10 @@ export class DbService {
       location: 'default'
     }
     this.platform.ready().then(() => {
-      this.sqlite.create(sqliteDatabaseConfig)
+      return this.sqlite.create(sqliteDatabaseConfig)
         .then((db: SQLiteObject) => {
           this.storage = db;
-          // this.getFakeData();
+          this.getFakeData();
         });
     });
   }
