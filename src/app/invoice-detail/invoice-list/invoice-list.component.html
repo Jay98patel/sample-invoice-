@@ -1,16 +1,50 @@
-<div>
-  <div class="mt-2 d-flex justify-content-center">
+<div class="d-flex flex-column h-100">
+  <div class="py-2 d-flex justify-content-center">
     <dx-button stylingMode="contained" text="New Invoice" type="default" [width]="200" (onClick)="click()">
     </dx-button>
   </div>
-  <ion-card *ngFor="let invoice of invoiceList">
-    <ion-card-header>
-      <ion-card-title>{{invoice.aName}}</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
+  <div class="flex-grow-1 overflow-auto">
+    <ion-card *ngFor="let invoice of invoiceList">
+      <ion-card-header>
+        <ion-card-title>Invoice Main Contract: {{invoice.orderNo}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <table class="w-100">
+          <thead>
+            <th class="text-left">
+              OrderNo:
+            </th>
+            <th class="text-left">
+              eName:
+            </th>
+            <th class="text-left">
+              aName:
+            </th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                {{invoice.orderNo}}
+              </td>
+              <td>
+                {{invoice.eName}}
+              </td>
+              <td>
+                {{invoice.aName}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
-  </ion-card>
+        <div class="d-flex">
+          <dx-button stylingMode="contained" class="btn-edit" text="Edit" type="default" [width]="'auto'"
+            (onClick)="click()">
+          </dx-button>
+
+          <dx-button stylingMode="contained" text="Details" type="default" [width]="300" (onClick)="click()">
+          </dx-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </div>

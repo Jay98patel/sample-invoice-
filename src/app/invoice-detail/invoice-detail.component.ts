@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InvoiceDetails } from '../models/pageModels.interface';
+import { DataService } from '../services/data.service';
 import { DbService } from '../services/db.service';
 
 @Component({
@@ -11,24 +12,17 @@ export class InvoiceDetailComponent implements OnInit {
 
   invoiceList: InvoiceDetails[];
 
-  constructor(private dbService: DbService) { }
+  constructor(private dbService: DataService) { }
 
   ngOnInit() {
-    this.dbService.databaseStatus().subscribe((res: boolean) => {
-      debugger
-      console.log(res)
-      // if (res) {
-        this.getInvoiceList();
-      // }
-    });
+    this.getInvoiceList();
   }
 
   getInvoiceList() {
-    this.dbService.getInvoiceData().subscribe((res: InvoiceDetails[]) => {
+    this.dbService.getInvoiceListData().subscribe((res: InvoiceDetails[]) => {
       this.invoiceList = res;
     }, (error) => {
       console.error('somethings went wrong');
     });
   }
-
 }
