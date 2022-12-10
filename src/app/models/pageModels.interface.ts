@@ -4,7 +4,7 @@ export interface PageRoutes {
 }
 
 export interface InvoiceDetails {
-    id?:number;
+    id:number;
     orderNo: string;
     eName: string;
     aName: string;
@@ -16,4 +16,9 @@ export interface InvoiceDetails {
     taxRate1_Percentage: number;
     totalTax: number;
     taxRate1_total: number;
+}
+
+export interface ButtonStatus{
+    isEdit:boolean;
+    invoiceId:number
 }

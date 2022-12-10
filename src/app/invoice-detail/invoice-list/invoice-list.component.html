@@ -35,13 +35,12 @@
             </tr>
           </tbody>
         </table>
-
         <div class="d-flex">
           <dx-button stylingMode="contained" class="btn-edit" text="Edit" type="default" [width]="'auto'"
-            (onClick)="click()">
+            (onClick)="editInvoiceDetail(invoice.id)">
           </dx-button>
 
-          <dx-button stylingMode="contained" text="Details" type="default" [width]="300" (onClick)="click()">
+          <dx-button stylingMode="contained" text="Details" type="default" [width]="300" (onClick)="getInvoiceDetail(invoice.id)">
           </dx-button>
         </div>
       </ion-card-content>
