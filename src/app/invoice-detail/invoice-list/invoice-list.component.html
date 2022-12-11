@@ -1,0 +1,55 @@
+<div class="d-flex flex-column h-100">
+  <div class="py-2 d-flex justify-content-center">
+    <dx-button stylingMode="contained" text="New Invoice" type="default" [width]="200" (onClick)="click()">
+    </dx-button>
+  </div>
+  <div class="flex-grow-1 overflow-auto">
+    <ion-card *ngFor="let invoice of invoiceList">
+      <ion-card-header>
+        <ion-card-title>Invoice Main Contract: {{invoice.orderNo}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <table class="w-100">
+          <thead>
+            <th class="text-left">
+              OrderNo:
+            </th>
+            <th class="text-left">
+              eName:
+            </th>
+            <th class="text-left">
+              aName:
+            </th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                {{invoice.orderNo}}
+              </td>
+              <td>
+                {{invoice.eName}}
+              </td>
+              <td>
+                {{invoice.aName}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex">
+          <dx-button stylingMode="contained" class="btn-edit" text="Edit" type="default" [width]="'auto'"
+            (onClick)="editInvoiceDetail(invoice.id)">
+          </dx-button>
+
+          <dx-button stylingMode="contained" text="Details" type="default" [width]="300"
+            (onClick)="getInvoiceDetail(invoice.id)">
+          </dx-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <div class="d-flex justify-content-center align-items-center" *ngIf="!invoiceList || invoiceList.length==0">
+      <span class="text-danger">
+        No Data Found
+      </span>
+    </div>
+  </div>
+</div>

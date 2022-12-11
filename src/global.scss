@@ -10,6 +10,7 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
@@ -25,3 +26,141 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 @import '~devextreme/dist/css/dx.light.css';
+
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #eee;
+    color: #15161d;
+}
+
+ion-toolbar {
+    background-color: #0d2646;
+    color: #ffffff;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.ms-1 {
+    margin-left: 8px;
+}
+
+.me-1 {
+    margin-right: 8px;
+}
+
+.mt-2 {
+    margin-top: 16px;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+.pt-2 {
+    padding-top: 16px;
+}
+
+.py-2 {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.my-1 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.ps-1 {
+    padding-left: 8px;
+}
+
+.text-danger{
+    font-weight: 500;
+    color: #b60505;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.icon-edit {
+    font-size: 24px;
+    color: #0c233f;
+}
+
+.icon-delete {
+    font-size: 24px;
+    color: #b60505;
+}
+
+.bg-secondary-light {
+    background-color: rgba($color: #0d2646, $alpha: 0.09);
+}

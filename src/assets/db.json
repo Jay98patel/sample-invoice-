@@ -1,0 +1,18 @@
+{
+  "invoiceData": [
+    {
+      "id": 1,
+      "orderNo": "ert90",
+      "eName": "ui",
+      "aName": "iihi",
+      "unitNo": "Box",
+      "quantity": 3,
+      "price": 34,
+      "discount": 2,
+      "total": 96,
+      "taxRate1_Percentage": 2,
+      "totalTax": 6,
+      "taxRate1_total": 96
+    }
+  ]
+}
