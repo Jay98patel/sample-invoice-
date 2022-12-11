@@ -1,25 +1,31 @@
 <div class="modal">
-  <div class="form h-100" [formGroup]="invoiceForm" (ngSubmit)="saveInvoiceData()">
-    <dx-text-box class="my-1" formControlName="orderNo" placeholder="Main Contract"></dx-text-box>
-    <dx-text-box class="my-1" formControlName="eName" placeholder="eName"></dx-text-box>
-    <dx-text-box class="my-1" formControlName="aName" placeholder="aName"></dx-text-box>
-    <dx-select-box class="my-1" formControlName="unitNo" [items]="unitNo" placeholder="Unit"></dx-select-box>
-    <dx-number-box class="my-1" formControlName="quantity" (onValueChanged)="setTotalPrice()"
+  <div class="form h-100" [formGroup]="invoiceForm" >
+    <dx-text-box class="my-1" [disabled]="disableFields" formControlName="orderNo"
+      placeholder="Main Contract"></dx-text-box>
+    <dx-text-box class="my-1" [disabled]="disableFields" formControlName="eName" placeholder="eName"></dx-text-box>
+    <dx-text-box class="my-1" [disabled]="disableFields" formControlName="aName" placeholder="aName"></dx-text-box>
+    <dx-select-box class="my-1" [disabled]="disableFields" formControlName="unitNo" [items]="unitNo"
+      placeholder="Unit"></dx-select-box>
+    <dx-number-box class="my-1" [disabled]="disableFields" formControlName="quantity" (onValueChanged)="setTotalPrice()"
       placeholder="Enter Quantity"></dx-number-box>
-    <dx-number-box class="my-1" formControlName="price" (onValueChanged)="setTotalPrice()"
+    <dx-number-box class="my-1" [disabled]="disableFields" formControlName="price" (onValueChanged)="setTotalPrice()"
       placeholder="Price"></dx-number-box>
     <div class="d-flex w-100">
-      <dx-number-box class="my-1" formControlName="discount" (onValueChanged)="setTotalPrice()"
-        placeholder="Discount"></dx-number-box>
-      <dx-number-box class="my-1" formControlName="total" placeholder="Total Price"></dx-number-box>
+      <dx-number-box class="my-1" [disabled]="disableFields" formControlName="discount"
+        (onValueChanged)="setTotalPrice()" placeholder="Discount"></dx-number-box>
+      <dx-number-box class="my-1" [disabled]="disableFields" formControlName="total"
+        placeholder="Total Price"></dx-number-box>
     </div>
     <div class="d-flex w-100">
-      <dx-number-box class="my-1" formControlName="taxRate1_Percentage" (onValueChanged)="setTotalPrice(true)" placeholder="Tax Percentage"></dx-number-box>
-      <dx-number-box class="my-1" formControlName="totalTax" placeholder="Total tax"></dx-number-box>
+      <dx-number-box class="my-1" [disabled]="disableFields" formControlName="taxRate1_Percentage"
+        (onValueChanged)="setTotalPrice(true)" placeholder="Tax Percentage"></dx-number-box>
+      <dx-number-box class="my-1" [disabled]="disableFields" formControlName="totalTax"
+        placeholder="Total tax"></dx-number-box>
     </div>
-    <dx-number-box class="my-1" formControlName="taxRate1_total" placeholder="Total Price"></dx-number-box>
+    <dx-number-box class="my-1" [disabled]="disableFields" formControlName="taxRate1_total"
+      placeholder="Total Price"></dx-number-box>
     <div class="d-flex justify-content-between">
-      <dx-button stylingMode="contained" text="Submit" type="default" [width]="120">
+      <dx-button stylingMode="contained" type="submit" (onClick)="saveInvoiceData()" text="Submit" type="default" [width]="120">
       </dx-button>
       <dx-button stylingMode="contained" class="ps-1" text="Cancel" (onClick)="cancel()" type="danger" [width]="120">
       </dx-button>

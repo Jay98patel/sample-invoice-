@@ -11,16 +11,15 @@ export class DataService {
 
   baseUrl: string = 'http://localhost:3000';
 
-  invoiceData:Subject<InvoiceDetails>=new Subject<InvoiceDetails>();
+  invoiceData:Subject<any>=new Subject<any>();
 
   constructor(private http:HttpClient) { }
 
-  sendInvoiceData(invoiceData:InvoiceDetails){
-    debugger
+  sendInvoiceData(invoiceData:any){
     this.invoiceData.next(invoiceData);
   }
 
-  getInvoiceDetails():Observable<InvoiceDetails>{
+  getInvoiceDetails():Observable<any>{
     return this.invoiceData.asObservable();
   }
 

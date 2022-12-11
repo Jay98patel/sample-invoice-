@@ -38,6 +38,16 @@ export class InvoiceDetailComponent implements OnInit {
 
   editInvoice(invoiceToEdit: InvoiceDetails) {
     this.dbService.updateInvoiceData(invoiceToEdit).subscribe((res: InvoiceDetails) => {
+      this.showIt = false;
+      this.getInvoiceList();
+    }, (error) => {
+      console.error('somethings went wrong');
+    });
+  }
+
+  saveInvoice(invoiceToEdit: InvoiceDetails) {
+    this.dbService.createInvoiceData(invoiceToEdit).subscribe((res: InvoiceDetails) => {
+      this.showIt = false;
       this.getInvoiceList();
     }, (error) => {
       console.error('somethings went wrong');
@@ -47,10 +57,21 @@ export class InvoiceDetailComponent implements OnInit {
   getInvoiceDetail(buttonStatus: ButtonStatus) {
     this.showIt = true;
     this.dbService.getByIdInvoice(buttonStatus.invoiceId).subscribe((res: InvoiceDetails) => {
-      this.invoiceDetail = res;
-      this.dbService.sendInvoiceData(this.invoiceDetail);
+      let control = {
+        invoiceDetail: res,
+        buttonStatus: buttonStatus.isEdit
+      }
+      this.dbService.sendInvoiceData(control);
     }, (error) => {
       console.error('somethings went wrong');
     });
+  }
+
+  saveOrUpdateDetails(invoiceDetailSaveOrUpdate:any){
+    if(invoiceDetailSaveOrUpdate.isSave){
+      this.saveInvoice(invoiceDetailSaveOrUpdate.invoiceData);
+    }else{
+      this.editInvoice(invoiceDetailSaveOrUpdate.invoiceData);
+    }
   }
 }

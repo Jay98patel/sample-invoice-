@@ -11,11 +11,17 @@ import { DataService } from 'src/app/services/data.service';
 export class InvoiceFormComponent implements OnInit {
 
   @Output() close = new EventEmitter<any>();
+  @Output() saveOrupdateDetails: EventEmitter<any> = new EventEmitter<any>();
 
   unitNo: string[] = ['Bar', 'Piece', 'Box', 'Packet'];
 
   invoiceForm: FormGroup;
   invoiceValue: InvoiceDetails;
+  disableFields: boolean = false;
+  invoiceDetailSaveOrUpdate = {
+    invoiceData: null,
+    isSave: true
+  }
 
   constructor(private fb: FormBuilder, private invoiceService: DataService) { }
 
@@ -25,10 +31,13 @@ export class InvoiceFormComponent implements OnInit {
   }
 
   patchInvoiceValue() {
-    this.invoiceService.getInvoiceDetails().subscribe((res: InvoiceDetails) => {
-      console.log(res,'res')
-      if (res) {
-        this.invoiceForm.patchValue(res)
+    this.invoiceService.getInvoiceDetails().subscribe((res: any) => {
+      console.log(res, 'res')
+      if (!res.buttonStatus) {
+        this.disableFields = true;
+      }
+      if (res.invoiceDetail) {
+        this.invoiceForm.patchValue(res.invoiceDetail)
       }
     });
   }
@@ -68,9 +77,13 @@ export class InvoiceFormComponent implements OnInit {
   }
 
   saveInvoiceData() {
-    if (this.invoiceForm.valid) {
-      this.invoiceForm.value;
+    if (this.invoiceForm.value.id) {
+      this.invoiceDetailSaveOrUpdate = {
+        invoiceData: this.invoiceForm.value,
+        isSave: false
+      };
     }
+    this.saveOrupdateDetails.emit(this.invoiceDetailSaveOrUpdate);
   }
 
   cancel() {
