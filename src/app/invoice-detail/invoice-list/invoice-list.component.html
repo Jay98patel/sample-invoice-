@@ -40,10 +40,16 @@
             (onClick)="editInvoiceDetail(invoice.id)">
           </dx-button>
 
-          <dx-button stylingMode="contained" text="Details" type="default" [width]="300" (onClick)="getInvoiceDetail(invoice.id)">
+          <dx-button stylingMode="contained" text="Details" type="default" [width]="300"
+            (onClick)="getInvoiceDetail(invoice.id)">
           </dx-button>
         </div>
       </ion-card-content>
     </ion-card>
+    <div class="d-flex justify-content-center align-items-center" *ngIf="!invoiceList || invoiceList.length==0">
+      <span class="text-danger">
+        No Data Found
+      </span>
+    </div>
   </div>
 </div>

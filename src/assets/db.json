@@ -2,104 +2,17 @@
   "invoiceData": [
     {
       "id": 1,
-      "orderNo": "jay12",
-      "eName": "er43",
-      "aName": "test",
-      "unitNo": "Bar",
-      "quantity": 4,
-      "price": 190,
-      "discount": 90,
-      "total": 400,
-      "taxRate1_Percentage": 15,
-      "totalTax": 60,
-      "taxRate1_total": 460
-    },
-    {
-      "id": 2,
-      "orderNo": 567,
-      "eName": "er43",
-      "aName": "test",
-      "unitNo": "Bar",
-      "quantity": 4,
-      "price": 190,
-      "discount": 90,
-      "total": 400,
-      "taxRate1_Percentage": 15,
-      "totalTax": 60,
-      "taxRate1_total": 460
-    },
-    {
-      "id": 3,
-      "orderNo": 25,
-      "eName": "er43",
-      "aName": "test",
-      "unitNo": "Bar",
-      "quantity": 4,
-      "price": 190,
-      "discount": 90,
-      "total": 400,
-      "taxRate1_Percentage": 15,
-      "totalTax": 60,
-      "taxRate1_total": 460
-    },
-    {
-      "id": 4,
-      "orderNo": 5623,
-      "eName": "er43",
-      "aName": "test",
-      "unitNo": "Bar",
-      "quantity": 4,
-      "price": 190,
-      "discount": 90,
-      "total": 400,
-      "taxRate1_Percentage": 15,
-      "totalTax": 60,
-      "taxRate1_total": 460
-    },
-    {
-      "id": 5,
-      "orderNo": 234,
-      "eName": "er43",
-      "aName": "test",
-      "unitNo": "Bar",
-      "quantity": 4,
-      "price": 190,
-      "discount": 90,
-      "total": 400,
-      "taxRate1_Percentage": 15,
-      "totalTax": 60,
-      "taxRate1_total": 460
-    },
-    {
-      "id": 6,
-      "orderNo": 345555,
-      "eName": "er43",
-      "aName": "test",
-      "unitNo": "Bar",
-      "quantity": 4,
-      "price": 190,
-      "discount": 90,
-      "total": 400,
-      "taxRate1_Percentage": 15,
-      "totalTax": 60,
-      "taxRate1_total": 460
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8,
-      "orderNo": "we",
-      "eName": "wr",
-      "aName": "fw",
-      "unitNo": "Piece",
-      "quantity": 4,
-      "price": 3,
+      "orderNo": "ert90",
+      "eName": "ui",
+      "aName": "iihi",
+      "unitNo": "Box",
+      "quantity": 3,
+      "price": 34,
       "discount": 2,
-      "total": 4,
+      "total": 96,
       "taxRate1_Percentage": 2,
-      "totalTax": 8,
-      "taxRate1_total": 4
+      "totalTax": 6,
+      "taxRate1_total": 96
     }
   ]
 }
