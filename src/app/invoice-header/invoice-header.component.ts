@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { InvoiceDetails } from '../models/pageModels.interface';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-invoice-header',
@@ -7,8 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoiceHeaderComponent implements OnInit {
 
-  constructor() { }
+  invoiceList: InvoiceDetails[];
+  
+  constructor(private dbService: DataService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getInvoiceList();
+  }
+
+  getInvoiceList() {
+    this.dbService.getInvoiceListData().subscribe((res: InvoiceDetails[]) => {
+      this.invoiceList = res;
+    }, (error) => {
+      console.error('somethings went wrong');
+    });
+  }
 
 }
