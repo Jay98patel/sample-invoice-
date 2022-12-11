@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { tap } from 'rxjs/operators';
+import { InvoiceDetails } from 'src/app/models/pageModels.interface';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-invoice-form',
@@ -14,22 +15,22 @@ export class InvoiceFormComponent implements OnInit {
   unitNo: string[] = ['Bar', 'Piece', 'Box', 'Packet'];
 
   invoiceForm: FormGroup;
+  invoiceValue: InvoiceDetails;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private invoiceService: DataService) { }
 
   ngOnInit() {
     this.invoiceForm = this.buildInvoiceForm();
-    // this.setTotalValue();
+    this.patchInvoiceValue();
   }
 
-  setTotalValue() {
-    this.invoiceForm.valueChanges.pipe(tap((res: any) => {
-      this.invoiceForm.get('total')?.setValue(res.quantity * res.price);
-      let totalPrice = this.invoiceForm.get('total')?.value;
-      // if(res.discount){
-      //   this.invoiceForm.get('total')?.patchValue(res.quantity * res.discount - totalPrice);
-      // }
-    })).subscribe()
+  patchInvoiceValue() {
+    this.invoiceService.getInvoiceDetails().subscribe((res: InvoiceDetails) => {
+      console.log(res,'res')
+      if (res) {
+        this.invoiceForm.patchValue(res)
+      }
+    });
   }
 
   setTotalPrice(isPercentageChanged: boolean = false) {
@@ -48,8 +49,6 @@ export class InvoiceFormComponent implements OnInit {
     }
     this.invoiceForm.get('taxRate1_total')?.setValue(this.invoiceForm.get('total')?.value + totalTax);
   }
-
-
 
   buildInvoiceForm(): FormGroup {
     return this.fb.group({
@@ -75,7 +74,7 @@ export class InvoiceFormComponent implements OnInit {
   }
 
   cancel() {
-    this.close.emit(null);
+    this.close.emit(false);
   }
 
 }

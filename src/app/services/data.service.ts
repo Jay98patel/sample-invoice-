@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Subject } from 'rxjs/internal/Subject';
 import { InvoiceDetails } from '../models/pageModels.interface';
 
 @Injectable({
@@ -10,7 +11,18 @@ export class DataService {
 
   baseUrl: string = 'http://localhost:3000';
 
+  invoiceData:Subject<InvoiceDetails>=new Subject<InvoiceDetails>();
+
   constructor(private http:HttpClient) { }
+
+  sendInvoiceData(invoiceData:InvoiceDetails){
+    debugger
+    this.invoiceData.next(invoiceData);
+  }
+
+  getInvoiceDetails():Observable<InvoiceDetails>{
+    return this.invoiceData.asObservable();
+  }
 
   createInvoiceData(InvoiceData:InvoiceDetails){
     return this.http.post<InvoiceDetails>(`${this.baseUrl}/invoiceData`,InvoiceData);

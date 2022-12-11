@@ -21,7 +21,7 @@
     <div class="d-flex justify-content-between">
       <dx-button stylingMode="contained" text="Submit" type="default" [width]="120">
       </dx-button>
-      <dx-button stylingMode="contained" class="ps-1" text="Cancel" type="danger" [width]="120">
+      <dx-button stylingMode="contained" class="ps-1" text="Cancel" (onClick)="cancel()" type="danger" [width]="120">
       </dx-button>
     </div>
   </div>

@@ -45,9 +45,10 @@ export class InvoiceDetailComponent implements OnInit {
   }
 
   getInvoiceDetail(buttonStatus: ButtonStatus) {
+    this.showIt = true;
     this.dbService.getByIdInvoice(buttonStatus.invoiceId).subscribe((res: InvoiceDetails) => {
-      this.showIt = true;
       this.invoiceDetail = res;
+      this.dbService.sendInvoiceData(this.invoiceDetail);
     }, (error) => {
       console.error('somethings went wrong');
     });
