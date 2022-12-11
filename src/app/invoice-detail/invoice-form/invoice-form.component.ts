@@ -82,6 +82,11 @@ export class InvoiceFormComponent implements OnInit {
         invoiceData: this.invoiceForm.value,
         isSave: false
       };
+    } else {
+      this.invoiceDetailSaveOrUpdate = {
+        invoiceData: this.invoiceForm.value,
+        isSave: true
+      };
     }
     this.saveOrupdateDetails.emit(this.invoiceDetailSaveOrUpdate);
   }

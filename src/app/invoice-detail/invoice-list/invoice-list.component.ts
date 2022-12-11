@@ -9,6 +9,7 @@ import { ButtonStatus, InvoiceDetails } from 'src/app/models/pageModels.interfac
 export class InvoiceListComponent implements OnInit {
 
   @Output() invoiceId: EventEmitter<ButtonStatus> = new EventEmitter<ButtonStatus>();
+  @Output() createInvoice: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Input() invoiceList: InvoiceDetails[];
 
@@ -17,7 +18,7 @@ export class InvoiceListComponent implements OnInit {
   ngOnInit() { }
 
   click() {
-
+    this.createInvoice.emit(true);
   }
 
   editInvoiceDetail(invoiceId: number) {

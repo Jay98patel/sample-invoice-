@@ -1,3 +1,4 @@
 <app-invoice-list class="h-100 overflow-hidden" [invoiceList]="invoiceList"
-    (invoiceId)="getInvoiceDetail($event)"></app-invoice-list>
+    (invoiceId)="getInvoiceDetail($event)"
+    (createInvoice)="showInvoiceForm($event)"></app-invoice-list>
 <app-invoice-form *ngIf="showIt" (close)="closeModal($event)" (saveOrupdateDetails)="saveOrUpdateDetails($event)"></app-invoice-form>

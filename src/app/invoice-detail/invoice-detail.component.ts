@@ -28,6 +28,10 @@ export class InvoiceDetailComponent implements OnInit {
     this.showIt = false;
   }
 
+  showInvoiceForm(isFormVisible: boolean) {
+    this.showIt = isFormVisible;
+  }
+
   getInvoiceList() {
     this.dbService.getInvoiceListData().subscribe((res: InvoiceDetails[]) => {
       this.invoiceList = res;
@@ -67,10 +71,10 @@ export class InvoiceDetailComponent implements OnInit {
     });
   }
 
-  saveOrUpdateDetails(invoiceDetailSaveOrUpdate:any){
-    if(invoiceDetailSaveOrUpdate.isSave){
+  saveOrUpdateDetails(invoiceDetailSaveOrUpdate: any) {
+    if (invoiceDetailSaveOrUpdate.isSave) {
       this.saveInvoice(invoiceDetailSaveOrUpdate.invoiceData);
-    }else{
+    } else {
       this.editInvoice(invoiceDetailSaveOrUpdate.invoiceData);
     }
   }
